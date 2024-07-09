@@ -1,7 +1,7 @@
 // config
 'use client'
 import { useState, useEffect } from "react";
-import { useAccount, useWriteContract, useReadContract, useWaitForTransactionReceipt } from "wagmi";
+import { useAccount, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { contractMarketplaceAddress, contractMarketplaceAbi } from "@/constants";
 
 // components

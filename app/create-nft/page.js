@@ -10,13 +10,15 @@ const page = () => {
   const { isConnected } = useAccount();
 
   return (
-    <>
+    <div className="flex flex-col items-center ">
       {isConnected ? (
-        <CreateNFT />
+        <>
+          <CreateNFT />
+        </>
       ) : (
         <NotConnected />
       )}
-    </>
+    </div>
   )
 }
 

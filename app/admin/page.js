@@ -16,6 +16,7 @@ import RegisterClient from "@/components/shared/RegisterClient";
 // event ClientRegistered(address clientAddress);
 // event NFTCreated(address brandAddress, uint256 tokenId, uint256 price, string description);
 // event NFTSold(address from, address to, uint256 id, uint256 price);
+// event NFTMinted(uint256 tokenId, address from, address to, string tokenURI)
 
 
 const page = () => {
@@ -38,6 +39,11 @@ const page = () => {
       event: parseAbiItem('event ClientRegistered(address clientAddress)'),
       fromBlock: 0n,
     })
+    const mintNFT = await publicClient.getLogs({
+      address: contractNFTAddress,
+      event: parseAbiItem('event NFTMinted(uint256 tokenId, address from, address to, string tokenURI)'),
+      fromBlock: 0n,
+    })
 
     const combinedEvents = registerBrand.map((event) => ({
       eventName: event.eventName,
@@ -49,6 +55,11 @@ const page = () => {
         newValue: `Client registered ${event.args.clientAddress}`,
         blockNumber: Number(event.blockNumber)
       })),
+      mintNFT.map((event) => ({
+        eventName: event.eventName,
+        newValue: `NFT minted ID: ${event.args.tokenId}, by ${event.args.to}`,
+        blockNumber: Number(event.blockNumber)
+      }))
     )
 
 
