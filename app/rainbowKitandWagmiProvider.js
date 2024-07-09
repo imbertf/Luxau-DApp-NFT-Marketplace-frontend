@@ -1,7 +1,6 @@
 'use client'
 
 import '@rainbow-me/rainbowkit/styles.css';
-import 'dotenv/config';
 import {
   getDefaultConfig,
   RainbowKitProvider,
@@ -9,7 +8,7 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 import {
-  hardhat, sepolia
+  hardhat
 } from 'wagmi/chains';
 import {
   QueryClientProvider,
@@ -18,8 +17,8 @@ import {
 
 const config = getDefaultConfig({
   appName: 'Luxau Lifestyle Elegance',
-  projectId: `${process.env.NEXT_PUBLIC_CONNECT_WALLET}`,
-  chains: [hardhat, sepolia],
+  projectId: "a2e180c4662c575ce30655ff14da5501",
+  chains: [hardhat],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 

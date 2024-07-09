@@ -1,8 +1,8 @@
-import React from 'react'
-
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <footer className="h-14 flex justify-center items-center">
+      <p>All rights reserved <span className="text-[#D4AF37] italic">&copy;Imbertf</span> {new Date().getFullYear()}</p>
+    </footer>
   )
 }
 

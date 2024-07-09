@@ -1,10 +1,11 @@
 import "./globals.css";
 import { Inter as FontSans } from "next/font/google"
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils"
 import RainbowKitAndWagmiProvider from "./rainbowKitandWagmiProvider"
 
-import Layout from "@/components/shared/Layout"
-// import { Toaster } from "@/components/ui/toaster";
+import Layout from "../components/shared/Layout"
+// import { AdminProvider } from "../providers/AdminContext";
+import { Toaster } from "@/components/ui/toaster";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,11 +28,13 @@ export default function RootLayout({ children }) {
         )}
       >
         <RainbowKitAndWagmiProvider>
+          {/* <AdminProvider> */}
           <Layout>
             {children}
           </Layout>
+          {/* </AdminProvider> */}
         </RainbowKitAndWagmiProvider>
-        {/* <Toaster /> */}
+        <Toaster />
       </body>
     </html>
   )
