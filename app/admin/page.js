@@ -12,12 +12,6 @@ import NotConnected from "@/components/shared/NotConnected";
 import RegisterBrand from "@/components/shared/RegisterBrand";
 import RegisterClient from "@/components/shared/RegisterClient";
 
-// event BrandRegistered(address brandAddress);
-// event ClientRegistered(address clientAddress);
-// event NFTCreated(address brandAddress, uint256 tokenId, uint256 price, string description);
-// event NFTSold(address from, address to, uint256 id, uint256 price);
-// event NFTMinted(uint256 tokenId, address from, address to, string tokenURI)
-
 
 const page = () => {
   const [events, setEvents] = useState([])
@@ -44,6 +38,17 @@ const page = () => {
       event: parseAbiItem('event NFTMinted(uint256 tokenId, address from, address to, string tokenURI)'),
       fromBlock: 0n,
     })
+    const createNFT = await publicClient.getLogs({
+      address: contractMarketplaceAddress,
+      event: parseAbiItem('event NFTCreated(address brandAddress, uint256 tokenId, uint256 price, string description)'),
+      fromBlock: 0n,
+    })
+    const NFTSold = await publicClient.getLogs({
+      address: contractMarketplaceAddress,
+      event: parseAbiItem('event NFTSold(address from, address to, uint256 id, uint256 price)'),
+      fromBlock: 0n,
+    })
+
 
     const combinedEvents = registerBrand.map((event) => ({
       eventName: event.eventName,
@@ -58,6 +63,16 @@ const page = () => {
       mintNFT.map((event) => ({
         eventName: event.eventName,
         newValue: `NFT minted ID: ${event.args.tokenId}, by ${event.args.to}`,
+        blockNumber: Number(event.blockNumber)
+      })),
+      createNFT.map((event) => ({
+        eventName: event.eventName,
+        newValue: `NFT created ID: ${event.args.tokenId}, by ${event.args.brandAddress}, price ${event.args.price} ETH, description ${event.args.description}`,
+        blockNumber: Number(event.blockNumber)
+      })),
+      NFTSold.map((event) => ({
+        eventName: event.eventName,
+        newValue: `NFT ID: ${event.args.id}, by ${event.args.from} to ${event.args.to} price ${event.args.price} ETH`,
         blockNumber: Number(event.blockNumber)
       }))
     )

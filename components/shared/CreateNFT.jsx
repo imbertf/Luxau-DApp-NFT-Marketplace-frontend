@@ -13,10 +13,6 @@ import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { useToast } from "../ui/use-toast";
 
-// nftAddress
-// tokenId
-// price
-// description
 
 
 const CreateNFT = () => {
@@ -29,22 +25,24 @@ const CreateNFT = () => {
   const { address } = useAccount();
   const { data: hash, isPending: setIsPending, error, writeContract } = useWriteContract();
   const { isLoading: isConfirming, isSuccess: isConfirmed, error: errorConfirmation, refetch } = useWaitForTransactionReceipt({ hash })
-  const { data: data } = useReadContract({
-    address: contractMarketplaceAddress,
-    abi: contractMarketplaceAbi,
-    functionName: "brandNFTs",
-    args: [address, 0]
-  })
-  // const { data: data } = useReadContract({
+
+  // const { data: marketdata } = useReadContract({
+  //   address: contractMarketplaceAddress,
+  //   abi: contractMarketplaceAbi,
+  //   functionName: "brandNFTs",
+  //   args: [address, 0]
+  // })
+  // const { data: nftdata } = useReadContract({
   //   address: contractNFTAddress,
   //   abi: contractNFTAbi,
   //   functionName: "totalSupply"
   // })
 
-  const showData = () => {
-    console.log(data);
-  }
-  showData()
+  // const showData = () => {
+  //   console.log(marketdata);
+  //   console.log(nftdata);
+  // }
+  // showData()
 
   const handleMint = async () => {
     // check valid input before transaction
