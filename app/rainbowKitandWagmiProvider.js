@@ -9,7 +9,8 @@ import {
 import { WagmiProvider } from 'wagmi';
 
 import { hardhat } from 'viem/chains';
-import { baseSepolia } from "@/utils/client"
+import { publicClient } from "@/utils/client"
+
 require("dotenv").config();
 
 import {
@@ -17,18 +18,21 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-const config = getDefaultConfig({
-  appName: 'Luxau Lifestyle Elegance',
-  projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
-  chains: [hardhat],
-  ssr: true, // If your dApp uses server side rendering (SSR)
-});
+// // hardhat
 // const config = getDefaultConfig({
 //   appName: 'Luxau Lifestyle Elegance',
 //   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
-//   chains: [baseSepolia],
+//   chains: [hardhat],
 //   ssr: true, // If your dApp uses server side rendering (SSR)
 // });
+
+// baseSepolia
+const config = getDefaultConfig({
+  appName: 'Luxau Lifestyle Elegance',
+  projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
+  chains: [baseSepolia],
+  ssr: true, // If your dApp uses server side rendering (SSR)
+});
 
 const queryClient = new QueryClient();
 
