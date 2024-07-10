@@ -8,7 +8,7 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 
-import { hardhat } from 'viem/chains';
+// import { hardhat } from 'viem/chains';
 import { publicClient } from "@/utils/client"
 
 require("dotenv").config();
@@ -30,7 +30,7 @@ import {
 const config = getDefaultConfig({
   appName: 'Luxau Lifestyle Elegance',
   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
-  chains: [baseSepolia],
+  chains: [publicClient],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 
