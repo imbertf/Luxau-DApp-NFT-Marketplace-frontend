@@ -2,7 +2,8 @@
 'use client';
 import { useState, useEffect } from "react";
 import { useAccount, useReadContract } from "wagmi";
-import { publicClient } from "@/utils/client";
+// import { publicClient } from "@/utils/client";
+import { baseSepolia } from "@/utils/baseSepolia";
 import { parseAbiItem } from "viem";
 import { contractMarketplaceAddress, contractMarketplaceAbi, contractNFTAddress, contractNFTAbi } from "@/constants";
 
@@ -23,27 +24,27 @@ const page = () => {
   })
 
   const getEvents = async () => {
-    const registerBrand = await publicClient.getLogs({
+    const registerBrand = await baseSepolia.getLogs({
       address: contractMarketplaceAddress,
       event: parseAbiItem('event BrandRegistered(address brandAddress)'),
       fromBlock: 0n,
     })
-    const registerClient = await publicClient.getLogs({
+    const registerClient = await baseSepolia.getLogs({
       address: contractMarketplaceAddress,
       event: parseAbiItem('event ClientRegistered(address clientAddress)'),
       fromBlock: 0n,
     })
-    const mintNFT = await publicClient.getLogs({
+    const mintNFT = await baseSepolia.getLogs({
       address: contractNFTAddress,
       event: parseAbiItem('event NFTMinted(uint256 tokenId, address from, address to, string tokenURI)'),
       fromBlock: 0n,
     })
-    const createNFT = await publicClient.getLogs({
+    const createNFT = await baseSepolia.getLogs({
       address: contractMarketplaceAddress,
       event: parseAbiItem('event NFTCreated(address brandAddress, uint256 tokenId, uint256 price, string description)'),
       fromBlock: 0n,
     })
-    const NFTSold = await publicClient.getLogs({
+    const NFTSold = await baseSepolia.getLogs({
       address: contractMarketplaceAddress,
       event: parseAbiItem('event NFTSold(address from, address to, uint256 id, uint256 price)'),
       fromBlock: 0n,
