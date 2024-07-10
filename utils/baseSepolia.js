@@ -2,6 +2,7 @@
 require('dotenv').config();
 
 const RPC = process.env.NEXT_PUBLIC_ALCHEMY_RPC || "https://sepolia.base.org/";
+console.log(RPC);
 
 export const baseSepolia = {
   id: 84532,
@@ -10,7 +11,7 @@ export const baseSepolia = {
   nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: {
-      http: ["https://base-sepolia.g.alchemy.com/v2/ggQZpqtem_YhSCU5-RexhT5KgbpE8U2b"],
+      http: [RPC],
     },
   },
   blockExplorers: {
