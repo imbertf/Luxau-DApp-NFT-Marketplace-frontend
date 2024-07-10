@@ -1,3 +1,6 @@
+
+require('dotenv').config();
+
 const RPC = process.env.NEXT_PUBLIC_ALCHEMY_RPC || "";
 
 export const baseSepolia = {

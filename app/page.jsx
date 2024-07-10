@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import { useAccount, useWriteContract, useWaitForTransactionReceipt, useReadContract } from "wagmi";
 import { contractMarketplaceAddress, contractMarketplaceAbi, contractNFTAddress, contractNFTAbi } from "@/constants";
 import { parseEther } from "viem";
-// import { publicClient } from "@/utils/client";
-import { baseSepolia } from "@/utils/baseSepolia";
+import { publicClient } from "@/utils/client";
 import { parseAbiItem } from "viem";
 
 // components
@@ -19,12 +18,12 @@ export default function Home() {
 
 
   const getEvents = async () => {
-    const createNFT = await baseSepolia.getLogs({
+    const createNFT = await publicClient.getLogs({
       address: contractMarketplaceAddress,
       event: parseAbiItem('event NFTCreated(address brandAddress, uint256 tokenId, uint256 price, string description)'),
       fromBlock: 0n,
     })
-    const mintNFT = await baseSepolia.getLogs({
+    const mintNFT = await publicClient.getLogs({
       address: contractNFTAddress,
       event: parseAbiItem('event NFTMinted(uint256 tokenId, address from, address to, string tokenURI)'),
       fromBlock: 0n,
