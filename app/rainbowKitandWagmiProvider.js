@@ -9,7 +9,8 @@ import {
 import { WagmiProvider } from 'wagmi';
 
 // import { hardhat } from 'viem/chains';
-import { publicClient } from "@/utils/client"
+// import { publicClient } from "@/utils/client"
+import { baseSepolia } from "@/utils/baseSepolia"
 
 require("dotenv").config();
 
@@ -30,7 +31,7 @@ import {
 const config = getDefaultConfig({
   appName: 'Luxau Lifestyle Elegance',
   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
-  chains: [publicClient],
+  chains: [baseSepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 
