@@ -62,8 +62,8 @@ const RegisterBrand = () => {
   // refrech all inputs after transaction
   useEffect(() => {
     if (isConfirmed) {
-      setBrandName('')
-      setBrandAddress('')
+      setBrandName("")
+      setBrandAddress("")
       refetch();
     }
   }, [isConfirmed, refetch])
