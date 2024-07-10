@@ -38,7 +38,7 @@ import {
 const config = getDefaultConfig({
   appName: 'Luxau Lifestyle Elegance',
   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
-  chains: [base, baseSepolia],
+  chains: [baseSepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 
