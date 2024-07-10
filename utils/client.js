@@ -5,7 +5,7 @@ const RPC = process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL || "";
 
 export const publicClient = createPublicClient({
   chain: baseSepolia,
-  transport: http(RPC),
+  transport: http(`${RPC}`),
 })
 
 // export const publicClient = createPublicClient({
