@@ -1,7 +1,7 @@
 import { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox';
 
-const RPC = process.env.ALCHEMY_RPC_URL || "";
+const RPC = process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL || "";
 
 const config: HardhatUserConfig = {
   defaultNetwork: 'base',
