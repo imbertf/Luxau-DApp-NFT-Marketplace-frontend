@@ -8,6 +8,7 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 
+import { hardhat } from 'viem/chains';
 import { baseSepolia } from "@/utils/client"
 require("dotenv").config();
 
@@ -19,9 +20,15 @@ import {
 const config = getDefaultConfig({
   appName: 'Luxau Lifestyle Elegance',
   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
-  chains: [baseSepolia],
+  chains: [hardhat],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
+// const config = getDefaultConfig({
+//   appName: 'Luxau Lifestyle Elegance',
+//   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
+//   chains: [baseSepolia],
+//   ssr: true, // If your dApp uses server side rendering (SSR)
+// });
 
 const queryClient = new QueryClient();
 
