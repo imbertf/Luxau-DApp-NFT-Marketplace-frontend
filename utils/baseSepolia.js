@@ -10,7 +10,7 @@ export const baseSepolia = {
   nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: {
-      http: [RPC],
+      http: ["https://base-sepolia.g.alchemy.com/v2/ggQZpqtem_YhSCU5-RexhT5KgbpE8U2b"],
     },
   },
   blockExplorers: {
