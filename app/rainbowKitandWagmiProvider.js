@@ -8,7 +8,7 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 
-import { base } from "@/utils/client"
+import { base } from "../utils/client"
 require("dotenv").config();
 
 import {
