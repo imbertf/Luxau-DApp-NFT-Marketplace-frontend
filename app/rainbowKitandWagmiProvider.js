@@ -7,9 +7,10 @@ import {
   theme
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
-import {
-  hardhat
-} from 'wagmi/chains';
+
+import { base } from "@/utils/client"
+require("dotenv").config();
+
 import {
   QueryClientProvider,
   QueryClient,
@@ -17,8 +18,8 @@ import {
 
 const config = getDefaultConfig({
   appName: 'Luxau Lifestyle Elegance',
-  projectId: "a2e180c4662c575ce30655ff14da5501",
-  chains: [hardhat],
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  chains: [base],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 

@@ -1,7 +1,9 @@
 import { createPublicClient, http } from "viem";
-import { hardhat, sepolia } from "viem/chains";
+import { base } from "viem/chains";
+
+const RPC = "https://sepolia.base.org";
 
 export const publicClient = createPublicClient({
-  chain: hardhat,
-  transport: http(),
+  chain: base,
+  transport: http(RPC),
 })
