@@ -1,7 +1,7 @@
 
 require('dotenv').config();
 
-const RPC = process.env.NEXT_PUBLIC_ALCHEMY_RPC || "";
+const RPC = process.env.NEXT_PUBLIC_ALCHEMY_RPC || "https://sepolia.base.org/";
 
 export const baseSepolia = {
   id: 84532,
