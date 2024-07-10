@@ -9,8 +9,8 @@ import {
 import { WagmiProvider } from 'wagmi';
 
 // import { hardhat } from 'viem/chains';
-// import { publicClient } from "@/utils/client"
 import { baseSepolia } from "@/utils/baseSepolia"
+// import { base, baseSepolia } from 'wagmi/chains';
 
 require("dotenv").config();
 
@@ -28,10 +28,17 @@ import {
 // });
 
 // baseSepolia
+// const config = getDefaultConfig({
+//   appName: 'Luxau Lifestyle Elegance',
+//   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
+//   chains: [baseSepolia],
+//   ssr: true, // If your dApp uses server side rendering (SSR)
+// });
+
 const config = getDefaultConfig({
   appName: 'Luxau Lifestyle Elegance',
   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
-  chains: [baseSepolia],
+  chains: [base, baseSepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 
