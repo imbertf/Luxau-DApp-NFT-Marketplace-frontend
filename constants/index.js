@@ -1,5 +1,7 @@
-export const contractMarketplaceAddress = "0xDa2264b9eDE1e93CC9188F901e27fc7e7616c13e";
-export const contractNFTAddress = "0xC0BcB454bf0613f3ceE88129e7484dC3911520D6";
+export const contractMarketplaceAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // hardhat
+// export const contractMarketplaceAddress = "0xDa2264b9eDE1e93CC9188F901e27fc7e7616c13e"; // baseSepolia
+export const contractNFTAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"; // hardhat
+// export const contractNFTAddress = "0xC0BcB454bf0613f3ceE88129e7484dC3911520D6"; // baseSepolia
 
 export const contractMarketplaceAbi = [
   {

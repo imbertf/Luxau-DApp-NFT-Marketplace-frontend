@@ -26,6 +26,15 @@ const CreateNFT = () => {
   const { data: hash, isPending: setIsPending, error, writeContract } = useWriteContract();
   const { isLoading: isConfirming, isSuccess: isConfirmed, error: errorConfirmation, refetch } = useWaitForTransactionReceipt({ hash })
 
+  // const { data: marketData, isSuccess } = useReadContract({
+  //   address: contractMarketplaceAddress,
+  //   abi: contractMarketplaceAbi,
+  //   functionName: "brandNFTs",
+  //   args: [address, 0]
+  // })
+  // console.log(marketData);
+
+
   const handleMint = async () => {
     // check valid input before transaction
     if (ethValue === "" || ethValue < 0.0001) {
@@ -74,6 +83,10 @@ const CreateNFT = () => {
   // refrech all inputs after transaction
   useEffect(() => {
     if (isConfirmed) {
+      setEthValue(0)
+      setTokenId(null)
+      setPrice(null)
+      setDescription("")
       refetch();
     }
   }, [isConfirmed, refetch])

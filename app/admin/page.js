@@ -16,11 +16,14 @@ import RegisterClient from "@/components/shared/RegisterClient";
 const page = () => {
   const [events, setEvents] = useState([])
   const { isConnected, address } = useAccount();
-  const { data: hash, isSuccess, refetch } = useReadContract({
+  const { data: marketData, isSuccess, refetch } = useReadContract({
     address: contractMarketplaceAddress,
     abi: contractMarketplaceAbi,
-    functionName: "owner"
+    functionName: "clientNFTs",
+    args: [address, 0],
   })
+
+  console.log(marketData);
 
   const getEvents = async () => {
     const registerBrand = await publicClient.getLogs({

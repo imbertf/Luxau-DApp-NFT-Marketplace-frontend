@@ -8,11 +8,12 @@ import { parseAbiItem } from "viem";
 
 // components
 import NFTCard from "@/components/shared/NFTCard";
+import NotConnected from "@/components/shared/NotConnected";
 
 
 export default function Home() {
   const [events, setEvents] = useState([])
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
   const { data: hash, isPending: setIsPending, error, writeContract } = useWriteContract();
   const { isLoading: isConfirming, isSuccess: isConfirmed, error: errorConfirmation, refetch } = useWaitForTransactionReceipt({ hash })
 
@@ -69,13 +70,19 @@ export default function Home() {
   const mergedEvents = Object.values(mergedData);
 
   return (
-    <section className="flex flex-col items-center my-10">
-      <h2 className="text-center text-xl">NFT List</h2>
-      <div >
-        {mergedEvents.map((event) => (
-          <NFTCard nft={event} key={crypto.randomUUID()} />
-        ))}
-      </div>
-    </section>
+    <div>
+      {isConnected ? (
+        <section className="flex flex-col items-center my-10" >
+          <h2 className="text-center text-xl">NFT List</h2>
+          <div >
+            {mergedEvents.map((event) => (
+              <NFTCard nft={event} key={crypto.randomUUID()} />
+            ))}
+          </div>
+        </section>
+      ) : (
+        <NotConnected />
+      )}
+    </div>
   );
 }
