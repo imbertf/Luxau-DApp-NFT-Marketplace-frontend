@@ -23,7 +23,6 @@ const page = () => {
     args: [address, 0],
   })
 
-  console.log(marketData);
 
   const getEvents = async () => {
     const registerBrand = await publicClient.getLogs({
@@ -43,12 +42,12 @@ const page = () => {
     })
     const createNFT = await publicClient.getLogs({
       address: contractMarketplaceAddress,
-      event: parseAbiItem('event NFTCreated(address brandAddress, uint256 tokenId, uint256 price, string description)'),
+      event: parseAbiItem('event NFTCreated(address brandAddress, uint256 tokenId, uint256 price, string brandName, string description)'),
       fromBlock: 0n,
     })
     const NFTSold = await publicClient.getLogs({
       address: contractMarketplaceAddress,
-      event: parseAbiItem('event NFTSold(address from, address to, uint256 id, uint256 price)'),
+      event: parseAbiItem('event NFTSold(address from, address to, uint256 id, uint256 price, bool isSold)'),
       fromBlock: 0n,
     })
 
@@ -70,12 +69,12 @@ const page = () => {
       })),
       createNFT.map((event) => ({
         eventName: event.eventName,
-        newValue: `NFT created ID: ${event.args.tokenId}, by ${event.args.brandAddress}, price ${event.args.price} ETH, description ${event.args.description}`,
+        newValue: `NFT created ID: ${event.args.tokenId}, by ${event.args.brandName} ${event.args.brandAddress}, price ${event.args.price} ETH, description ${event.args.description}`,
         blockNumber: Number(event.blockNumber)
       })),
       NFTSold.map((event) => ({
         eventName: event.eventName,
-        newValue: `NFT ID: ${event.args.id}, by ${event.args.from} to ${event.args.to} price ${event.args.price} ETH`,
+        newValue: `NFT ID: ${event.args.id}, by ${event.args.from} to ${event.args.to} price ${event.args.price} ETH, status ${event.args.isSold}`,
         blockNumber: Number(event.blockNumber)
       }))
     )
@@ -121,7 +120,7 @@ const page = () => {
             <RegisterClient />
             <section className="w-1/2 space-y-3">
               <h2 className="text-center text-xl">Events</h2>
-              <div className="flex flex-col w-full">
+              <div className="flex flex-col w-full h-96 overflow-auto">
                 {events.length > 0 && events.map((event) => {
                   return (
                     <Event event={event} key={crypto.randomUUID()} />

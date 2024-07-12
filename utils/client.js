@@ -11,7 +11,6 @@ require("dotenv").config();
 // })
 
 const RPC = process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL;
-const CHAIN = process.env.NEXT_PUBLIC_CHAIN;
 
 export const publicClient = createPublicClient({
   chain: process.env.NODE_ENV === "production" ? baseSepolia : hardhat,

@@ -84,8 +84,8 @@ const CreateNFT = () => {
   useEffect(() => {
     if (isConfirmed) {
       setEthValue(0)
-      setTokenId(null)
-      setPrice(null)
+      setTokenId(0)
+      setPrice(0)
       setDescription("")
       refetch();
     }
@@ -99,7 +99,7 @@ const CreateNFT = () => {
           <h3 className="mb-3">Please MINT NFT first</h3>
           <div>
             <Label htmlFor="price">ETH required to MINT</Label>
-            <Input type="number" placeholder="Min value 0.0001 ETH" onChange={(e) => setEthValue(e.target.value)} />
+            <Input type="number" placeholder="Min value 0.0001 ETH" value={ethValue} onChange={(e) => setEthValue(e.target.value)} />
           </div>
           <div className="flex justify-end">
             <Button variant="outline" className="rounded-none bg-[#D4AF37] text-white shadow-md mt-3" onClick={handleMint}>{setIsPending ? 'Minting...' : 'Mint'}</Button>
@@ -109,19 +109,19 @@ const CreateNFT = () => {
           <h3 className="mb-3">Please add NFT informations</h3>
           <div>
             <Label htmlFor="tokenId">Select Token ID</Label>
-            <Input type="number" placeholder="ex: 4" onChange={(e) => setTokenId(e.target.value)} />
+            <Input type="number" placeholder="ex: 4" value={tokenId} onChange={(e) => setTokenId(e.target.value)} />
           </div>
           <div>
             <Label htmlFor="price">Price you want to sell NFT</Label>
-            <Input type="number" placeholder="ex: 1500" onChange={(e) => setPrice(e.target.value)} />
+            <Input type="number" placeholder="ex: 1500" value={price} onChange={(e) => setPrice(e.target.value)} />
           </div>
           <div>
             <Label htmlFor="description">NFT Description</Label>
-            <Input type="text" placeholder="ex: The necklace features a luxurious and bold design with a layered structure..." onChange={(e) => setDescription(e.target.value)} />
+            <Input type="text" placeholder="ex: The necklace features a luxurious and bold design with a layered structure..." value={description} onChange={(e) => setDescription(e.target.value)} />
           </div>
           <div>
             <Label htmlFor="price">ETH required to create NFT</Label>
-            <Input type="number" placeholder="Min value 1 ETH" onChange={(e) => setEthValue(e.target.value)} />
+            <Input type="number" placeholder="Min value 1 ETH" value={ethValue} onChange={(e) => setEthValue(e.target.value)} />
           </div>
 
           <div className="flex justify-end">

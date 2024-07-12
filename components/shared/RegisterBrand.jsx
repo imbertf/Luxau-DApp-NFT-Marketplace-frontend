@@ -74,11 +74,11 @@ const RegisterBrand = () => {
       <h2 className="text-center text-xl">Register new brand</h2>
       <div>
         <Label htmlFor="brandName">Brand name</Label>
-        <Input type="text" placeholder="ex: Luxau Company" onChange={(e) => setBrandName(e.target.value)} maxLength={42} />
+        <Input type="text" placeholder="ex: Luxau Company" value={brandName} onChange={(e) => setBrandName(e.target.value)} maxLength={42} />
       </div>
       <div>
         <Label htmlFor="brandAddress">Brand address</Label>
-        <Input type="text" placeholder="ex: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266" onChange={(e) => setBrandAddress(e.target.value)} maxLength={42} />
+        <Input type="text" placeholder="ex: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266" value={brandAddress} onChange={(e) => setBrandAddress(e.target.value)} maxLength={42} />
       </div>
       <div className="flex justify-end">
         <Button variant="outline" className="rounded-none bg-[#D4AF37] text-white shadow-md mt-3" onClick={handleRegister}>{setIsPending ? 'Registering...' : 'Register'}</Button>
