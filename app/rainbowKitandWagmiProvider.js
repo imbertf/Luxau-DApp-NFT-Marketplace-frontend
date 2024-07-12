@@ -18,15 +18,6 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-// hardhat
-// const hardhatConfig = getDefaultConfig({
-//   appName: 'Luxau Lifestyle Elegance',
-//   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
-//   chains: [hardhat],
-//   ssr: true,
-// });
-
-// baseSepolia
 const config = getDefaultConfig({
   appName: 'Luxau Lifestyle Elegance',
   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
