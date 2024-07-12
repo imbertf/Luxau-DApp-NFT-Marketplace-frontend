@@ -1,14 +1,10 @@
-// import { ExclamationTriangleIcon } from "@radix-ui/react-icons"
-
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 const NotConnected = () => {
   return (
-    <Alert variant="destructive">
-      {/* <ExclamationTriangleIcon className="h-4 w-4" /> */}
-      <AlertTitle>Warning</AlertTitle>
-      <AlertDescription>
-        Please connect to Luxau Marketplace
+    <Alert className="flex justify-center border-none">
+      <AlertDescription className="w-1/4 flex flex-col items-center justify-center border-2 border-[#D4AF37] shadow-md h-20">
+        <p>Please connect to <span className="text-[#D4AF37] font-bold">Luxau </span>Marketplace with your wallet</p>
       </AlertDescription>
     </Alert>
   )
