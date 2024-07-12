@@ -1,7 +1,18 @@
-export const contractMarketplaceAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // hardhat
-// export const contractMarketplaceAddress = "0xDa2264b9eDE1e93CC9188F901e27fc7e7616c13e"; // baseSepolia
-export const contractNFTAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"; // hardhat
-// export const contractNFTAddress = "0xC0BcB454bf0613f3ceE88129e7484dC3911520D6"; // baseSepolia
+require("dotenv").config();
+
+const {
+  NEXT_PUBLIC_MARKETPLACE_ADDRESS,
+  NEXT_PUBLIC_NFT_ADDRESS
+} = process.env;
+
+// export const contractMarketplaceAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // hardhat
+// export const contractMarketplaceAddress = "0x26f11f946f25354E67795eed4fE06972179258B2"; // baseSepolia
+// export const contractNFTAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"; // hardhat
+// export const contractNFTAddress = "0x84F6b5d6f0bFd30c26D33BE7573Aab6663EF561B"; // baseSepolia
+
+export const contractMarketplaceAddress = process.env.NODE_ENV === "production" ? NEXT_PUBLIC_MARKETPLACE_ADDRESS : "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+export const contractNFTAddress = process.env.NODE_ENV === "production" ? NEXT_PUBLIC_NFT_ADDRESS : "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+
 
 export const contractMarketplaceAbi = [
   {
@@ -86,6 +97,12 @@ export const contractMarketplaceAbi = [
       {
         "indexed": false,
         "internalType": "string",
+        "name": "brandName",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
         "name": "description",
         "type": "string"
       }
@@ -119,6 +136,12 @@ export const contractMarketplaceAbi = [
         "internalType": "uint256",
         "name": "price",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "isSold",
+        "type": "bool"
       }
     ],
     "name": "NFTSold",
@@ -177,6 +200,11 @@ export const contractMarketplaceAbi = [
         "internalType": "uint256",
         "name": "price",
         "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "brandName",
+        "type": "string"
       },
       {
         "internalType": "string",
@@ -244,6 +272,11 @@ export const contractMarketplaceAbi = [
         "internalType": "uint256",
         "name": "price",
         "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "brandName",
+        "type": "string"
       },
       {
         "internalType": "string",
