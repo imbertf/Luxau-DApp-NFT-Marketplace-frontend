@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Luxau NFT Marketplace - Frontend
 
-## Getting Started
+## Description
 
-First, run the development server:
+Frontend application for the Luxau NFT Marketplace, enabling users to browse, buy, and manage luxury NFTs.
+
+## Technologies Used
+
+- **Next.js**
+- **Shadcn**
+- **NPM**
+- **RainbowKit**
+- **Viem**
+- **Wagmi**
+
+## Prerequisites
+
+- Install all the technologies mentioned above.
+
+## Installation
+
+1. Clone the repository.
+2. Run `npm install` to install the dependencies.
+
+## Usage
+
+Start the frontend with the command:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Importants informations
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Contracts addresses and ABI are in "constants/index.js"
+- Clients configs are in "utils/baseSepolia.js" and "utils/client.js"
+- Components are in "components/shared/...jsx"
+- UI Components are in "components/ui/...jsx"
+- If you change chains config dont forget to update it in "app/rainbowKitandWagmiProvider.js"
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## License
 
-## Learn More
+MIT License.
 
-To learn more about Next.js, take a look at the following resources:
+## Contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Email: f.imbert4@gmail.com
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Authors
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Imbertf
